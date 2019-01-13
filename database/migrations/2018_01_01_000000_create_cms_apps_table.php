@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Djavue\Engine\Facades\Handler;
 
-class CreateCsmAppsTable extends Migration
+class CreateCmsAppsTable extends Migration
 {
     /**
      * Run the migrations.
