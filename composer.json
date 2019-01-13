@@ -1,0 +1,24 @@
+{
+    "name": "djavue/apps",
+    "description": "cms_apps management",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": ">=5.4",
+		"spatie/laravel-medialibrary": "^7.5",
+        "djavue/engine": "dev-master"
+    },
+	"autoload": {
+        "psr-4": {
+            "Djavue\\Engine\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nam Dinh",
+            "email": "dinhtrongnam@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
