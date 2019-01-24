@@ -17,6 +17,13 @@ use Djavue\Engine\Models\Page;
 class InnerBackground extends Model
 {
     use SoftDeletes;
+			
+	/**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'app_inner_backgrounds';
 	
 	/**
      * Indicates if the model should be timestamped.

@@ -18,6 +18,13 @@ use Djavue\Engine\Models\Project;
 class Background extends Model
 {
     use SoftDeletes;
+		
+	/**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'app_backgrounds';
 	
 	/**
      * Indicates if the model should be timestamped.

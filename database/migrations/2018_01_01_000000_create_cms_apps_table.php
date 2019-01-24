@@ -14,7 +14,7 @@ class CreateCmsAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('backgrounds', function (Blueprint $table) {
+        Schema::create('app_backgrounds', function (Blueprint $table) {
             $table->increments('id');
 			
 			$table->string('code')->default('home');
@@ -40,7 +40,7 @@ class CreateCmsAppsTable extends Migration
             $table->foreign('project_id')->references('id')->on('projects');
         });
 		
-		Schema::create('inner_backgrounds', function (Blueprint $table) {
+		Schema::create('app_inner_backgrounds', function (Blueprint $table) {
             $table->increments('id');
 			
 			$table->string('image')->nullable();
@@ -60,10 +60,10 @@ class CreateCmsAppsTable extends Migration
 			$table->index(['deleted_at']);
 			
             $table->unsignedInteger('page_id');
-            $table->foreign('page_id')->references('id')->on('pages');
+            $table->foreign('page_id')->references('id')->on('project_pages');
         });
 		
-		Schema::create('popups', function (Blueprint $table) {
+		Schema::create('app_popups', function (Blueprint $table) {
             $table->increments('id');
 			
 			$table->string('link')->nullable();
@@ -88,7 +88,7 @@ class CreateCmsAppsTable extends Migration
 			$table->index(['deleted_at']);
 			
             $table->unsignedInteger('page_id');
-            $table->foreign('page_id')->references('id')->on('pages');
+            $table->foreign('page_id')->references('id')->on('project_pages');
         });
     }
 
@@ -99,8 +99,8 @@ class CreateCmsAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('backgrounds');
-        Schema::dropIfExists('inner_backgrounds');
-        Schema::dropIfExists('popups');
+        Schema::dropIfExists('app_backgrounds');
+        Schema::dropIfExists('app_inner_backgrounds');
+        Schema::dropIfExists('app_popups');
     }
 }
