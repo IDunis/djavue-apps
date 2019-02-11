@@ -31,14 +31,16 @@ class InnerBackground extends Model
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['link', 'image', 'background', 'published_at', 'unpublished_at', 'is_active'];
+    protected $fillable = [
+		'link', 'image', 'background', 'published_at', 'unpublished_at', 'is_active'
+	];
     
 	/**
      * The attributes that should be mutated to dates.
