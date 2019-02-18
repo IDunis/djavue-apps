@@ -15,7 +15,7 @@ use Djavue\Engine\Models\Page;
  * @property string $subtitle "Multi Languages"
  * @property string $description "Multi Languages"
 */
-class InnerBackground extends Model
+class Popup extends Model
 {
     use SoftDeletes;
 			
@@ -114,7 +114,7 @@ class InnerBackground extends Model
         return $this->belongsTo(Page::class, 'page_id')->withTrashed();
     }
 	
-	public function getLocaleFields()
+	public static function getLocaleFields()
 	{
 		return [
 			'name'	=> 'max:191|nullable',

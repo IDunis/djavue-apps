@@ -114,7 +114,7 @@ class Background extends Model
         return $this->belongsTo(Project::class, 'project_id')->withTrashed();
     }
 	
-	public function getLocaleFields()
+	public static function getLocaleFields()
 	{
 		return [
 			'subtitle'	=> 'max:191|nullable',
