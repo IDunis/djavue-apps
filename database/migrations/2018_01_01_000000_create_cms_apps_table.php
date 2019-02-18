@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Djavue\Engine\Facades\Handler;
+use Djavue\Apps\Models\Background as BackgroundModel;
+use Djavue\Apps\Models\InnerBackground as InnerBackgroundModel;
+use Djavue\Apps\Models\Popup as PopupModel;
 
 class CreateCmsAppsTable extends Migration
 {
@@ -25,11 +28,12 @@ class CreateCmsAppsTable extends Migration
 			$table->integer('is_active')->nullable();
 			$table->integer('sorted_at')->nullable()->unsigned();
 			
+            $fields = BackgroundModel::getLocaleFields();
 			$locales = Handler::getLanguages();
-			foreach ($locales as $locale) {
-				$table->string(Handler::getProperty('subtitle', $locale))->nullable();
-				$table->string(Handler::getProperty('description', $locale))->nullable();
-				$table->string(Handler::getProperty('button_text', $locale))->nullable();
+            foreach ($fields as $field => $data) {
+                foreach ($locales as $locale) {
+                    $table->string(Handler::getProperty($field, $locale))->nullable();
+                }
 			}
 
 			$table->timestamps();
@@ -49,10 +53,12 @@ class CreateCmsAppsTable extends Migration
 			$table->integer('is_active')->nullable();
 			$table->integer('sorted_at')->nullable()->unsigned();
 			
+            $fields = InnerBackgroundModel::getLocaleFields();
 			$locales = Handler::getLanguages();
-			foreach ($locales as $locale) {
-				$table->string(Handler::getProperty('subtitle', $locale))->nullable();
-				$table->string(Handler::getProperty('description', $locale))->nullable();
+            foreach ($fields as $field => $data) {
+                foreach ($locales as $locale) {
+                    $table->string(Handler::getProperty($field, $locale))->nullable();
+                }
 			}
 
 			$table->timestamps();
@@ -73,11 +79,12 @@ class CreateCmsAppsTable extends Migration
 			$table->timestamp('published_at')->nullable();
 			$table->timestamp('unpublished_at')->nullable();
 			
+            $fields = PopupModel::getLocaleFields();
 			$locales = Handler::getLanguages();
-			foreach ($locales as $locale) {
-				$table->string(Handler::getProperty('name', $locale))->nullable();
-				$table->string(Handler::getProperty('subtitle', $locale))->nullable();
-				$table->string(Handler::getProperty('description', $locale))->nullable();
+            foreach ($fields as $field => $data) {
+                foreach ($locales as $locale) {
+                    $table->string(Handler::getProperty($field, $locale))->nullable();
+                }
 			}
 			
 			$table->integer('is_active')->nullable();

@@ -10,7 +10,7 @@
     },
 	"autoload": {
         "psr-4": {
-            "Djavue\\Engine\\": "src/"
+            "Djavue\\Apps\\": "src/"
         }
     },
     "license": "MIT",
